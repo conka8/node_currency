@@ -79,7 +79,7 @@
     "@web3auth/base": "^9.5.4",
     "@web3auth/base-provider": "^9.5.4",
     "@web3auth/no-modal": "^9.5.4",
-    "@zk-game-dao/ui": "^0.2.13",
+    "@zk-game-dao/ui": "github:conka8/node_ui#main",
     "analytics": "^0.8.14",
     "autoprefixer": "^10.4.19",
     "axios": "^1.7.9",
