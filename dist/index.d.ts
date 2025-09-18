@@ -3,8 +3,8 @@ import { Allowance } from '@dfinity/ledger-icrc/dist/candid/icrc_ledger';
 import { AuthClient } from '@dfinity/auth-client';
 import { AuthUserInfo } from '@web3auth/auth-adapter';
 import { Context } from 'react';
-import { default as default_2 } from 'react';
-import { default as default_3 } from 'big.js';
+import { default as default_2 } from 'big.js';
+import { default as default_3 } from 'react';
 import { DefinedUseQueryResult } from '@tanstack/react-query';
 import { HttpAgent } from '@dfinity/agent';
 import { IcrcTokenMetadata } from '@dfinity/ledger-icrc';
@@ -20,14 +20,14 @@ import { PropsWithChildren } from 'react';
 import { QueryKeyFactory } from '@zk-game-dao/ui';
 import { ReactNode } from 'react';
 import { SiwbIdentityContextType } from 'ic-siwb-lasereyes-connector';
-import { UseMutationResult } from '@tanstack/react-query/build/legacy/types';
-import { UseMutationResult as UseMutationResult_2 } from '@tanstack/react-query';
+import { UseMutationResult } from '@tanstack/react-query';
+import { UseMutationResult as UseMutationResult_2 } from '@tanstack/react-query/build/legacy/types';
 import { Web3AuthNoModal } from '@web3auth/no-modal';
 
 export declare const AddTokenModal: NamedExoticComponent<    {
-onClose(): void;
-isOpen?: boolean;
-onSelect?(currency: Currency): void;
+    onClose(): void;
+    isOpen?: boolean;
+    onSelect?(currency: Currency): void;
 }>;
 
 export declare type AllowanceAddressData = {
@@ -46,7 +46,7 @@ export declare type AllowanceContextType = {
 };
 
 export declare const AllowanceManagementProvider: MemoExoticComponent<({ children }: {
-children: ReactNode;
+    children: ReactNode;
 }) => JSX.Element>;
 
 export declare type AllowanceRequestData = {
@@ -140,8 +140,8 @@ export declare type ChainFusionTransferProps = {
 export declare const CKERC20_TO_ERC20_MAX_TRANSACTION_FEE = 10000000000000000n;
 
 export declare const CKTokenCurrencyComponent: NamedExoticComponent<    {
-className?: string;
-ckToken: CKTokenSymbol;
+    className?: string;
+    ckToken: CKTokenSymbol;
 }>;
 
 export declare type CKTokenSymbol = {
@@ -153,7 +153,7 @@ export declare type CKTokenSymbol = {
 };
 
 export declare const CKTokenSymbolLabelComponent: NamedExoticComponent<    {
-value: CKTokenSymbol;
+    value: CKTokenSymbol;
 }>;
 
 export declare const CKTokenSymbolSerializer: {
@@ -186,11 +186,11 @@ export declare const CurrencyAllowanceContext: Context<AllowanceContextType>;
 export declare const CurrencyComponent: NamedExoticComponent<CurrencyComponentProps>;
 
 export declare const CurrencyComponentInner: NamedExoticComponent<CryptoCoinValue & {
-className?: string;
-size?: "medium" | "big" | "small";
-hideSymbol?: boolean;
-reverse?: boolean;
-forceFlex?: boolean;
+    className?: string;
+    size?: "medium" | "big" | "small";
+    hideSymbol?: boolean;
+    reverse?: boolean;
+    forceFlex?: boolean;
 } & Pick<CurrencyMeta, "symbol" | "decimals" | "renderedDecimalPlaces" | "icon" | "isFetched">>;
 
 export declare type CurrencyComponentInnerProps = CryptoCoinValue & {
@@ -214,8 +214,8 @@ export declare type CurrencyConfigContextType = {
 };
 
 export declare const CurrencyIconComponent: NamedExoticComponent<    {
-className?: string;
-currency: Currency;
+    className?: string;
+    currency: Currency;
 }>;
 
 export declare const CurrencyInputComponent: NamedExoticComponent<CurrencyInputProps>;
@@ -258,10 +258,10 @@ export declare type CurrencyMeta = {
 };
 
 export declare const CurrencyMetaIconComponent: NamedExoticComponent<    {
-className?: string;
-meta: Pick<CurrencyMeta, "isFetched" | "icon" | "symbol"> & {
-metadata?: Pick<IcrcTokenMetadata, "name">;
-};
+    className?: string;
+    meta: Pick<CurrencyMeta, "isFetched" | "icon" | "symbol"> & {
+        metadata?: Pick<IcrcTokenMetadata, "name">;
+    };
 }>;
 
 export declare type CurrencyNetwork = (typeof CURRENCY_NETWORKS)[number];
@@ -287,22 +287,22 @@ export declare type CurrencyType = {
 };
 
 export declare const CurrencyTypeComponent: NamedExoticComponent<    {
-currencyType: CurrencyType;
+    currencyType: CurrencyType;
 }>;
 
 export declare const CurrencyTypeIconComponent: NamedExoticComponent<    {
-className?: string;
-currencyType: CurrencyType;
+    className?: string;
+    currencyType: CurrencyType;
 }>;
 
 export declare const CurrencyTypeInputComponent: NamedExoticComponent<    {
-label?: ReactNode;
-value?: CurrencyType;
-onChange(value?: CurrencyType): void;
+    label?: ReactNode;
+    value?: CurrencyType;
+    onChange(value?: CurrencyType): void;
 }>;
 
 export declare const CurrencyTypeLabelComponent: NamedExoticComponent<    {
-currencyType: CurrencyType;
+    currencyType: CurrencyType;
 }>;
 
 export declare const CurrencyTypeSerializer: {
@@ -312,7 +312,7 @@ export declare const CurrencyTypeSerializer: {
 };
 
 export declare const CurrencyTypeSymbolComponent: NamedExoticComponent<    {
-currencyType: CurrencyType;
+    currencyType: CurrencyType;
 }>;
 
 export declare const CurrencyTypeToString: (currencyType: CurrencyType) => string;
@@ -330,7 +330,7 @@ export declare const DateToLocalDateTimeString: (timestamp: bigint, format?: str
 export declare function decodeSymbolFrom8Bytes(bytes: Uint8Array | number[]): string;
 
 export declare const EI6963Provider: NamedExoticComponent<    {
-children?: ReactNode | undefined;
+    children?: ReactNode | undefined;
 }>;
 
 export declare interface EIP1193Provider {
@@ -391,7 +391,7 @@ export declare const ETHExternalWalletTypes: string[];
 
 export declare const fetchAllowance: (currencyType: CurrencyType, receiver: CurrencyReceiver, authData: AuthData) => Promise<bigint>;
 
-export declare const FloatToTokenAmount: <Param extends default_3 | undefined = default_3.Big | undefined, Return = Param extends number ? bigint : undefined>(f: Param, meta: CurrencyMeta) => Return;
+export declare const FloatToTokenAmount: <Param extends default_2 | undefined = default_2.Big | undefined, Return = Param extends number ? bigint : undefined>(f: Param, meta: CurrencyMeta) => Return;
 
 export declare const formatBalance: (rawBalance: string) => string;
 
@@ -401,12 +401,12 @@ export declare type FullAllowanceRequestData = {
 };
 
 export declare const GenericICRC1IconComponent: NamedExoticComponent<    {
-className?: string;
-token: Token;
+    className?: string;
+    token: Token;
 }>;
 
 export declare const GenericICRC1LabelComponent: NamedExoticComponent<    {
-value: Token;
+    value: Token;
 }>;
 
 export declare const getChainFusionTransactionFee: (authData: AuthData) => Promise<{
@@ -441,7 +441,7 @@ export declare const IsSamePrincipal: (a?: Principal, b?: Principal) => boolean;
 export declare const IsSameToken: (a?: Token, b?: Token) => boolean;
 
 export declare const LoginProviderLabel: NamedExoticComponent<    {
-provider: AuthProvider;
+    provider: AuthProvider;
 }>;
 
 export declare const ManualWalletContext: Context<ManualWalletContextType>;
@@ -452,7 +452,7 @@ declare type ManualWalletContextType = {
 };
 
 export declare const ManualWalletSelectorComponent: NamedExoticComponent<    {
-label?: ReactNode;
+    label?: ReactNode;
 }>;
 
 export declare type ModalProps = {
@@ -463,28 +463,28 @@ export declare type ModalProps = {
 };
 
 export declare const ProvideAuthClient: NamedExoticComponent<    {
-children?: ReactNode | undefined;
+    children?: ReactNode | undefined;
 }>;
 
 export declare const ProvideChainFusionContext: NamedExoticComponent<    {
-children: ReactNode;
+    children: ReactNode;
 }>;
 
 export declare const ProvideCurrencyConfig: NamedExoticComponent<PropsWithChildren<{
-enabledNetworks?: CurrencyNetwork[];
-disabledNetworks?: CurrencyNetwork[];
+    enabledNetworks?: CurrencyNetwork[];
+    disabledNetworks?: CurrencyNetwork[];
 }>>;
 
 export declare const ProvideCurrencyContext: NamedExoticComponent<    {
-children: ReactNode;
-disabledNetworks?: CurrencyNetwork[];
-enabledNetworks?: CurrencyNetwork[];
-/** If left empty its going to use the production canister */
-siwbProviderCanisterId?: Principal;
+    children: ReactNode;
+    disabledNetworks?: CurrencyNetwork[];
+    enabledNetworks?: CurrencyNetwork[];
+    /** If left empty its going to use the production canister */
+    siwbProviderCanisterId?: Principal;
 }>;
 
 export declare const ProvideManualWalletContext: NamedExoticComponent<    {
-children: ReactNode;
+    children: ReactNode;
 }>;
 
 export declare type Providers = Partial<{
@@ -493,19 +493,19 @@ export declare type Providers = Partial<{
 }>;
 
 export declare const ProvideTokenRegistry: NamedExoticComponent<    {
-children: ReactNode;
+    children: ReactNode;
 }>;
 
 export declare const Queries: {
     auth: QueryKeyFactory<[{
-    siwb?: SiwbIdentityContextType;
-    laserEyes?: LaserEyesContextType;
-    internetIdentityProvider?: AuthClient;
+        siwb?: SiwbIdentityContextType;
+        laserEyes?: LaserEyesContextType;
+        internetIdentityProvider?: AuthClient;
     }], any[]>;
     _balanceModalBalance: QueryKeyFactory<[currency: CurrencyType], (string | CurrencyType)[]>;
     chain_fusion_transaction_fees: QueryKeyFactory<[authenticated: boolean], string[]>;
     walletBalance: QueryKeyFactory<[currency: CurrencyType, authData?: {
-    accountIdentifier?: AccountIdentifier;
+        accountIdentifier?: AccountIdentifier;
     } | undefined], (string | CurrencyType)[]>;
     icrc_allowance: QueryKeyFactory<[currency: CurrencyType], (string | CurrencyType)[]>;
     allowance: QueryKeyFactory<[currency?: CurrencyType | undefined, receiver?: CurrencyReceiver | undefined, wallet?: Principal | undefined], (string | CurrencyType)[]>;
@@ -513,17 +513,17 @@ export declare const Queries: {
 };
 
 export declare const RealCurrencyInputComponent: NamedExoticComponent<    {
-label?: ReactNode;
-value?: Currency;
-onChange(value?: Currency): void;
+    label?: ReactNode;
+    value?: Currency;
+    onChange(value?: Currency): void;
 }>;
 
-export declare const ReceiverComponent: default_2.NamedExoticComponent<{
+export declare const ReceiverComponent: default_3.NamedExoticComponent<{
     receiver: CurrencyReceiver;
 }>;
 
 export declare const ReceiverSelectorComponent: NamedExoticComponent<    {
-currency: Currency;
+    currency: Currency;
 }>;
 
 export declare const secondsToLabel: (seconds: number) => string;
@@ -531,7 +531,7 @@ export declare const secondsToLabel: (seconds: number) => string;
 export declare const setAllowance: (currencyType: CurrencyType, receiver: CurrencyReceiver, amount: bigint, authData: AuthData, expires_at: Date) => Promise<bigint>;
 
 export declare const SignupModalContentComponent: NamedExoticComponent<    {
-onClose(): void;
+    onClose(): void;
 }>;
 
 export declare type SocialLoginProviderKey = (typeof SocialLoginProviders)[number];
@@ -548,7 +548,7 @@ export declare interface Token {
     symbol: Uint8Array | number[];
 }
 
-export declare const TokenAmountToBig: <Param extends bigint | undefined = bigint | undefined, Return = Param extends bigint ? default_3.Big : undefined>(amount: Param, meta: CurrencyMeta) => Return;
+export declare const TokenAmountToBig: <Param extends bigint | undefined = bigint | undefined, Return = Param extends bigint ? default_2.Big : undefined>(amount: Param, meta: CurrencyMeta) => Return;
 
 export declare const TokenAmountToString: (amount: bigint, meta: Pick<CurrencyMeta, "decimals" | "renderedDecimalPlaces">, forceAccuracy?: boolean) => string;
 
@@ -627,7 +627,7 @@ export declare const useIsChainFusionCurrency: (currency: Currency) => boolean;
 
 export declare const useManualWallet: () => ManualWalletContextType;
 
-export declare const useManualWalletTransfer: (currencyType: CurrencyType, to?: Principal, action?: string) => UseMutationResult_2<bigint, Error, bigint, unknown>;
+export declare const useManualWalletTransfer: (currencyType: CurrencyType, to?: Principal, action?: string) => UseMutationResult<bigint, Error, bigint, unknown>;
 
 export declare const useRequireBalance: (currency: CurrencyType) => (requiredBalance: bigint, action?: string) => Promise<void>;
 
@@ -647,12 +647,12 @@ export declare const useTokenRegistry: () => TokenRegistry;
 
 export declare const useTransactionFee: (currencyType: CurrencyType) => bigint;
 
-export declare const useTransfer: (currency: Currency, to?: CurrencyReceiver) => UseMutationResult_2<bigint, Error, bigint, unknown>;
+export declare const useTransfer: (currency: Currency, to?: CurrencyReceiver) => UseMutationResult<bigint, Error, bigint, unknown>;
 
 export declare const useWalletModalContentContext: () => WalletModalContentContextType;
 
 export declare const WalletDisplayComponent: NamedExoticComponent<    {
-currency: Currency;
+    currency: Currency;
 }>;
 
 export declare interface WalletError {
@@ -665,9 +665,9 @@ export declare const WalletModalContent: NamedExoticComponent<ModalProps>;
 export declare const WalletModalContentContext: Context<WalletModalContentContextType>;
 
 export declare type WalletModalContentContextType = {
-    deposit: UseMutationResult<void, Error, void, unknown>;
-    withdraw: UseMutationResult<void, Error, void, unknown>;
-    continueMutation: UseMutationResult<void, Error, void, unknown>;
+    deposit: UseMutationResult_2<void, Error, void, unknown>;
+    withdraw: UseMutationResult_2<void, Error, void, unknown>;
+    continueMutation: UseMutationResult_2<void, Error, void, unknown>;
     currency?: Currency;
     authData: AuthData;
     web3WalletType: WalletType | "external";
@@ -695,8 +695,8 @@ export declare interface WalletProviderContext {
 export declare type WalletType = (typeof WalletTypes)[number];
 
 export declare const WalletTypeLabel: NamedExoticComponent<    {
-walletType?: WalletType | ETHExternalWalletType;
-eip6963?: EIP6963ProviderInfo;
+    walletType?: WalletType | ETHExternalWalletType;
+    eip6963?: EIP6963ProviderInfo;
 }>;
 
 export declare const WalletTypes: readonly ["plug", "bitfinityWallet"];
@@ -711,25 +711,3 @@ export declare type Web3AuthLoginProvider = {
 };
 
 export { }
-
-
-declare global {
-    interface Window {
-        ic: {
-            [key in WalletType]: Wallet;
-        };
-        phantom?: {
-            solana?: {
-                isPhantom: boolean;
-                connect: () => Promise<void>;
-            };
-        };
-    }
-}
-
-
-declare global {
-    interface WindowEventMap {
-        "eip6963:announceProvider": CustomEvent;
-    }
-}
