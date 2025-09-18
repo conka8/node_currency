@@ -36,7 +36,7 @@ const vn = D({
   requireLogin: async () => {
     throw new Error("Require login not implemented");
   }
-}), W = () => ee(vn), je = import.meta.env.VITE_IC_HOST ?? void 0 ?? Ne, R2 = Y ? `http://${import.meta.env.CANISTER_ID_INTERNET_IDENTITY}.localhost:4943/` : "https://identity.ic0.app", Wt = Y ? "BCXJ8tHb9VMkvEs206iq3MWC5m-5QHL5wyT2yZfWzALocpFmXhzgsDdY1mO7OKzRg5P5ppxbj08pTNOCMz15GU0" : "BCmjvDK41ZS6LOiJ2xpFa1P54DPHFd_lFddkyqKV-l3pPHI0Z5UoJTuheJ_5UVNnB1ugbpD2fmAZH9NLQ1IWSYw", J2 = Ne, W2 = Y ? Rt.SAPPHIRE_DEVNET : Rt.SAPPHIRE_MAINNET, ht = [
+}), W = () => ee(vn), je = import.meta.env.VITE_IC_HOST ?? void 0 ?? Ne, R2 = Y ? `http://${import.meta.env.CANISTER_ID_INTERNET_IDENTITY}.localhost:4943/` : "https://identity.ic0.app", Wt = Y ? "BGB83DXYKb2rHeBw3BdJEoavP3beVLZgvzDlWJTP6UyXD3Jj-qpt7RfMChACHGjDh1eqHetmktZeaogjuMMhvSs" : "BCmjvDK41ZS6LOiJ2xpFa1P54DPHFd_lFddkyqKV-l3pPHI0Z5UoJTuheJ_5UVNnB1ugbpD2fmAZH9NLQ1IWSYw", J2 = Ne, W2 = Y ? Rt.SAPPHIRE_DEVNET : Rt.SAPPHIRE_MAINNET, ht = [
   "google",
   "line",
   "twitter",
