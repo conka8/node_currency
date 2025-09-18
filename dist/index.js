@@ -1,7 +1,7 @@
 import { createContext as D, useContext as ee, memo as h, useState as E, useEffect as X, useCallback as le, useMemo as z, useRef as tn, Fragment as mt } from "react";
-import { IC_HOST as Ne, IsDev as Y, queryKeyFactory as se, matchRustEnum as R, BigIntToString as wt, BigIntToBig as nn, BigToBigInt as an, UserError as v, useQuery as Z, useToast as qe, useMutation as Q, WalletTypeNotInstalledError as $n, usePersistentState as de, ListItem as k, Image as rn, LoadingAnimationComponent as Ee, List as F, ErrorComponent as ce, FormComponent as e2, Interactable as gt, Modal as bt, TitleTextComponent as t2, DateToBigIntTimestamp as cn, useIsInList as n2, NumberInputComponent as on, ModalTitlePortal as He, TextInputComponent as xt, SwitchInputComponent as sn, DropdownInputComponent as Oe, CopiableTextComponent as Qe, LoadingSpinnerComponent as ln, QRCodeComponent as a2, Label as r2, TabsComponent as dn, ModalFooterPortal as Ze, ButtonComponent as q, useIsMobile as An, FauxLoadingBarAnimationComponent as c2, useConfirmModal as i2, DropdownComponent as o2, ModalBackButtonPortal as s2 } from "@zk-game-dao/ui";
+import { IC_HOST as Ne, IsDev as Y, queryKeyFactory as se, matchRustEnum as R, BigIntToString as wt, BigIntToBig as nn, BigToBigInt as an, UserError as v, useQuery as Z, useToast as qe, useMutation as Q, WalletTypeNotInstalledError as $n, usePersistentState as de, ListItem as k, Image as rn, LoadingAnimationComponent as Ee, List as F, ErrorComponent as ce, FormComponent as e2, Interactable as gt, Modal as xt, TitleTextComponent as t2, DateToBigIntTimestamp as cn, useIsInList as n2, NumberInputComponent as on, ModalTitlePortal as He, TextInputComponent as zt, SwitchInputComponent as sn, DropdownInputComponent as Oe, CopiableTextComponent as Qe, LoadingSpinnerComponent as ln, QRCodeComponent as a2, Label as r2, TabsComponent as dn, ModalFooterPortal as Ze, ButtonComponent as q, useIsMobile as An, FauxLoadingBarAnimationComponent as c2, useConfirmModal as i2, DropdownComponent as o2, ModalBackButtonPortal as s2 } from "@zk-game-dao/ui";
 import { AuthAdapter as l2 } from "@web3auth/auth-adapter";
-import { WEB3AUTH_NETWORK as Rt, CHAIN_NAMESPACES as d2, WALLET_ADAPTERS as Jt } from "@web3auth/base";
+import { WEB3AUTH_NETWORK as Jt, CHAIN_NAMESPACES as d2, WALLET_ADAPTERS as Wt } from "@web3auth/base";
 import { CommonPrivateKeyProvider as A2 } from "@web3auth/base-provider";
 import { Web3AuthNoModal as p2 } from "@web3auth/no-modal";
 import { jsx as a, Fragment as x, jsxs as w } from "react/jsx-runtime";
@@ -10,8 +10,8 @@ import { useLaserEyes as Pe, OylLogo as f2, MagicEdenLogo as m2, LeatherLogo as 
 import { OYL as pn, MAGIC_EDEN as un, LEATHER as fn, OKX as mn, XVERSE as wn, WIZZ as gn, UNISAT as yn, MAINNET as T2 } from "@omnisat/lasereyes-core";
 import { HttpAgent as he, Actor as B2 } from "@dfinity/agent";
 import { CkETHMinterCanister as b2 } from "@dfinity/cketh";
-import { AccountIdentifier as re, LedgerCanister as zt, SubAccount as x2 } from "@dfinity/ledger-icp";
-import { IcrcLedgerCanister as ie, mapTokenMetadata as kt } from "@dfinity/ledger-icrc";
+import { AccountIdentifier as re, LedgerCanister as kt, SubAccount as x2 } from "@dfinity/ledger-icp";
+import { IcrcLedgerCanister as ie, mapTokenMetadata as Ot } from "@dfinity/ledger-icrc";
 import { Principal as M } from "@dfinity/principal";
 import { ethers as ae } from "ethers";
 import { Buffer as z2 } from "buffer";
@@ -36,7 +36,9 @@ const vn = D({
   requireLogin: async () => {
     throw new Error("Require login not implemented");
   }
-}), W = () => ee(vn), je = import.meta.env.VITE_IC_HOST ?? void 0 ?? Ne, R2 = Y ? `http://${import.meta.env.CANISTER_ID_INTERNET_IDENTITY}.localhost:4943/` : "https://identity.ic0.app", Wt = Y ? "BGB83DXYKb2rHeBw3BdJEoavP3beVLZgvzDlWJTP6UyXD3Jj-qpt7RfMChACHGjDh1eqHetmktZeaogjuMMhvSs" : "BCmjvDK41ZS6LOiJ2xpFa1P54DPHFd_lFddkyqKV-l3pPHI0Z5UoJTuheJ_5UVNnB1ugbpD2fmAZH9NLQ1IWSYw", J2 = Ne, W2 = Y ? Rt.SAPPHIRE_DEVNET : Rt.SAPPHIRE_MAINNET, ht = [
+}), W = () => ee(vn), je = import.meta.env.VITE_IC_HOST ?? void 0 ?? Ne, R2 = Y ? `http://${import.meta.env.CANISTER_ID_INTERNET_IDENTITY}.localhost:4943/` : "https://identity.ic0.app", ht = Y ? "BGB83DXYKb2rHeBw3BdJEoavP3beVLZgvzDlWJTP6UyXD3Jj-qpt7RfMChACHGjDh1eqHetmktZeaogjuMMhvSs" : "BCmjvDK41ZS6LOiJ2xpFa1P54DPHFd_lFddkyqKV-l3pPHI0Z5UoJTuheJ_5UVNnB1ugbpD2fmAZH9NLQ1IWSYw";
+console.log("clientId", ht);
+const J2 = Ne, W2 = Y ? Jt.SAPPHIRE_DEVNET : Jt.SAPPHIRE_MAINNET, vt = [
   "google",
   "line",
   "twitter",
@@ -61,12 +63,12 @@ const vn = D({
       }
     }
   }), n = new p2({
-    clientId: Wt,
+    clientId: ht,
     web3AuthNetwork: W2,
     privateKeyProvider: t
     // Attach privateKeyProvider here
   }), r = new l2({
-    clientId: Wt
+    clientId: ht
     // adapterSettings: {
     //   loginConfig: {
     //     // weibo: {
@@ -284,7 +286,7 @@ function Ft(e) {
     t[n] = e.charCodeAt(n);
   return t;
 }
-function Ot(e) {
+function Nt(e) {
   Array.isArray(e) && (e = new Uint8Array(e));
   let t = e.indexOf(0);
   return t === -1 && (t = e.length), new TextDecoder().decode(e.slice(0, t));
@@ -295,7 +297,7 @@ const V2 = (e) => R(e)({
   USDT: () => "USDT"
 }), ve = (e) => R(e)({
   GenericICRC1: (t) => {
-    const n = `${Ot(t.symbol)}`;
+    const n = `${Nt(t.symbol)}`;
     return n.startsWith("ck") ? n.slice(2) : n;
   },
   CKETHToken: (t) => V2(t),
@@ -1064,7 +1066,7 @@ const V2 = (e) => R(e)({
   JSON.stringify,
   (e) => {
     let t = JSON.parse(e);
-    return typeof t == "string" && (t = JSON.parse(t)), typeof t.symbol == "string" ? t.symbol = Ot(t.symbol) : typeof t.symbol == "object" && (t.symbol = Object.values(t.symbol).map((n) => typeof n == "string" ? parseInt(n, 10) : n)), typeof t.ledger_id == "string" && (t.ledger_id = M.fromText(t.ledger_id)), "__principal__" in t.ledger_id && (t.ledger_id = M.fromText(t.ledger_id.__principal__)), {
+    return typeof t == "string" && (t = JSON.parse(t)), typeof t.symbol == "string" ? t.symbol = Nt(t.symbol) : typeof t.symbol == "object" && (t.symbol = Object.values(t.symbol).map((n) => typeof n == "string" ? parseInt(n, 10) : n)), typeof t.ledger_id == "string" && (t.ledger_id = M.fromText(t.ledger_id)), "__principal__" in t.ledger_id && (t.ledger_id = M.fromText(t.ledger_id.__principal__)), {
       decimals: t.decimals,
       ledger_id: t.ledger_id,
       symbol: t.symbol
@@ -1126,7 +1128,7 @@ const V2 = (e) => R(e)({
       o = t.accountIdentifier;
     else
       throw new v("Invalid receiver address");
-    return zt.create({
+    return kt.create({
       agent: r.agent,
       canisterId: l
     }).transfer({
@@ -1184,7 +1186,7 @@ const V2 = (e) => R(e)({
       Real: (n) => Gn(n)
     })
   }).data;
-}, Nt = h(
+}, Et = h(
   ({ meta: e, className: t }) => e.icon ? /* @__PURE__ */ a(
     "span",
     {
@@ -1223,7 +1225,7 @@ const V2 = (e) => R(e)({
 ), Me = h(
   ({ currencyType: e, className: t }) => {
     const n = ue(e);
-    return /* @__PURE__ */ a(Nt, { className: t, meta: n });
+    return /* @__PURE__ */ a(Et, { className: t, meta: n });
   },
   (e, t) => e.className === t.className && On(e.currencyType, t.currencyType)
 ), c0 = h(({ currencyType: e }) => {
@@ -1290,7 +1292,7 @@ const V2 = (e) => R(e)({
         ),
         children: [
           !e && /* @__PURE__ */ a(
-            Nt,
+            Et,
             {
               className: _(l ? "flex" : "inline-flex", {
                 "w-[24px] h-[24px]": t === "medium",
@@ -1353,8 +1355,8 @@ const V2 = (e) => R(e)({
   methodName: "icrc1_transfer",
   idl: D2,
   destination: t
-}, Et = () => ee(En), Pn = (e, t, n) => {
-  const { walletType: r } = Et(), c = De(e), { addToast: i } = qe();
+}, Pt = () => ee(En), Pn = (e, t, n) => {
+  const { walletType: r } = Pt(), c = De(e), { addToast: i } = qe();
   return Q({
     mutationFn: async (l) => {
       if (!r) throw new v("Wallet not found");
@@ -1459,7 +1461,7 @@ const V2 = (e) => R(e)({
   const n = ie.create({
     agent: t,
     canisterId: $(e)
-  }), r = await n.metadata({}), c = kt(r);
+  }), r = await n.metadata({}), c = Ot(r);
   if (!c)
     throw new Error(`Metadata not found for ${ve(e)}`);
   return Gn(
@@ -1486,7 +1488,7 @@ const V2 = (e) => R(e)({
     isFetched: n
   }),
   GenericICRC1: (r) => {
-    const c = t?.symbol ?? Ot(r.symbol), i = (c in Zt ? Zt[c] : void 0) ?? t?.icon;
+    const c = t?.symbol ?? Nt(r.symbol), i = (c in Zt ? Zt[c] : void 0) ?? t?.icon;
     return {
       metadata: t,
       decimals: t?.decimals ?? r.decimals,
@@ -1550,17 +1552,17 @@ const V2 = (e) => R(e)({
       }
     }
   })
-}), vt = async (e, t) => ({
+}), Ct = async (e, t) => ({
   currencyType: { Real: t },
   meta: await Sn(t, e)
-}), ke = async (e, t) => vt(e, {
+}), ke = async (e, t) => Ct(e, {
   CKETHToken: t
 }), m0 = async (e) => {
   Y && await e.fetchRootKey();
-  const n = await zt.create({
+  const n = await kt.create({
     agent: e,
     canisterId: $({ ICP: null })
-  }).metadata({}), r = kt(n);
+  }).metadata({}), r = Ot(n);
   if (!r) throw new Error("Metadata not found for ICP");
   return {
     currencyType: { Real: { ICP: null } },
@@ -1576,9 +1578,9 @@ const V2 = (e) => R(e)({
   };
 }, Xe = async (e, t) => R(t)({
   ICP: () => m0(e),
-  GenericICRC1: async (n) => vt(e, t),
+  GenericICRC1: async (n) => Ct(e, t),
   CKETHToken: async (n) => ke(e, n),
-  BTC: async () => vt(e, { BTC: null })
+  BTC: async () => Ct(e, { BTC: null })
 }), Ue = (e) => ({
   currencyType: { Fake: null },
   meta: {
@@ -1836,7 +1838,7 @@ const Wn = D({
   },
   withdraw: async () => {
   }
-}), Pt = () => ee(Wn), Yn = (e) => z(
+}), Mt = () => ee(Wn), Yn = (e) => z(
   () => R(e)({
     ICP: () => !1,
     GenericICRC1: () => !1,
@@ -1845,12 +1847,12 @@ const Wn = D({
   }),
   [e]
 ), Se = (e) => {
-  const t = Yn(e), { isNativeShown: n } = Pt();
+  const t = Yn(e), { isNativeShown: n } = Mt();
   return z(
     () => t && n,
     [t, n]
   );
-}, qt = 0.03, Ct = (e, t, n, r) => {
+}, qt = 0.03, Tt = (e, t, n, r) => {
   try {
     if (!t) throw new v("No Wallet selected");
     if (!n) throw new v("No Account selected");
@@ -1900,7 +1902,7 @@ const Wn = D({
         const p = await ke(
           r.agent,
           e.CKETHToken
-        ), m = await Tt(r);
+        ), m = await Bt(r);
         if (u < BigInt(qt * 10 ** p.meta.decimals))
           throw new v(
             `Minimum withdrawal amount is ${qt} ETH`
@@ -1937,7 +1939,7 @@ const Wn = D({
       setAllowanceTo: f,
       fetchAllowance: d,
       withdraw: async (u) => {
-        const p = await Tt(r), m = ie.create({
+        const p = await Bt(r), m = ie.create({
           agent: r.agent,
           canisterId: M.fromText(Rn)
         }), C = p.ckERC20ToERC20;
@@ -2003,7 +2005,7 @@ const Wn = D({
 }, Fn = (e) => {
   const { authData: t } = W(), { selectedWallet: n, selectedAccount: r } = Ke();
   return z(
-    () => Ct(
+    () => Tt(
       e,
       n,
       r,
@@ -2018,7 +2020,7 @@ const Wn = D({
     queryFn: t,
     refetchInterval: 1e4
   }).data;
-}, O0 = (e) => Fn(e).setAllowanceTo, N0 = 21000n, E0 = 10000000000000000n, Tt = async (e) => {
+}, O0 = (e) => Fn(e).setAllowanceTo, N0 = 21000n, E0 = 10000000000000000n, Bt = async (e) => {
   const n = (await ke(e.agent, { ETH: null })).meta.decimals ?? 18, r = Jn - n, c = 10n ** BigInt(r);
   return {
     ckERC20ToERC20: E0 / c,
@@ -2030,7 +2032,7 @@ const Wn = D({
     queryKey: S.chain_fusion_transaction_fees.key(!!e),
     queryFn: () => {
       if (e)
-        return Tt(e);
+        return Bt(e);
     }
   }).data;
 }, It = "chain-fusion-show-native", M0 = "chain-fusion-transaction-deposits", S0 = "chain-fusion-transaction-withdrawals", G0 = h(
@@ -2042,7 +2044,7 @@ const Wn = D({
     const { addToast: s } = qe(), d = Q({
       mutationFn: async ({ currency: g, amount: u }) => {
         if (!u) throw new v("No amount to withdraw found");
-        const m = await (await Ct(g, o.selectedWallet, o.selectedAccount, A)).withdraw(u);
+        const m = await (await Tt(g, o.selectedWallet, o.selectedAccount, A)).withdraw(u);
         return typeof m == "string" ? m : null;
       },
       onSuccess: (g, { currency: u }) => {
@@ -2059,7 +2061,7 @@ const Wn = D({
     }), f = Q({
       mutationFn: async ({ currency: g, amount: u }) => {
         if (!u) throw new v("No amount to deposit found");
-        const m = await (await Ct(g, o.selectedWallet, o.selectedAccount, A)).deposit(u);
+        const m = await (await Tt(g, o.selectedWallet, o.selectedAccount, A)).deposit(u);
         return typeof m == "string" ? m : null;
       },
       onSuccess: (g, { currency: u }) => {
@@ -2103,7 +2105,7 @@ const Wn = D({
   github: W0,
   line: H0
 }, Q0 = h(({ loginProvider: e, login: t }) => {
-  const n = z(() => ht.includes(e) ? "social" : "wallet", [e]);
+  const n = z(() => vt.includes(e) ? "social" : "wallet", [e]);
   return /* @__PURE__ */ a(
     k,
     {
@@ -2148,7 +2150,7 @@ const Wn = D({
     }
   }, [t, e]);
 }, X0 = h(({ isPending: e, providerType: t, isConnecting: n, connect: r }) => {
-  const c = z(() => Gt[t], [t]), i = Z0(t);
+  const c = z(() => Rt[t], [t]), i = Z0(t);
   return c ? /* @__PURE__ */ a(
     k,
     {
@@ -2194,7 +2196,7 @@ const Wn = D({
   ] });
 }), q0 = h(({ onClose: e, isLoggingIn: t, loginFactory: n }) => {
   const [r, c] = E(!1), [i, l] = E(), o = z(
-    () => r ? ht : ht.slice(0, 5),
+    () => r ? vt : vt.slice(0, 5),
     [r]
   );
   return /* @__PURE__ */ w("div", { className: "gap-3 flex flex-col justify-center", children: [
@@ -2242,7 +2244,7 @@ const Wn = D({
   ] });
 }), K0 = h(({ onClose: e }) => {
   const { loginFactory: t, error: n, isLoggingIn: r } = W();
-  return /* @__PURE__ */ w(bt, { open: !0, onClose: e, children: [
+  return /* @__PURE__ */ w(xt, { open: !0, onClose: e, children: [
     /* @__PURE__ */ a(t2, { title: "Sign in", text: "Choose a method to sign in" }),
     /* @__PURE__ */ a(Dt, { network: "btc", children: /* @__PURE__ */ a(U0, {}) }),
     /* @__PURE__ */ w(Dt, { network: "ic", children: [
@@ -2369,7 +2371,7 @@ const Wn = D({
           });
           break;
         case "email_passwordless":
-          await ge.connectTo(Jt.AUTH, {
+          await ge.connectTo(Wt.AUTH, {
             loginProvider: y.type,
             options: {
               login_hint: y.email
@@ -2377,7 +2379,7 @@ const Wn = D({
           });
           break;
         default:
-          await ge.connectTo(Jt.AUTH, {
+          await ge.connectTo(Wt.AUTH, {
             loginProvider: y.type
           });
           break;
@@ -2442,10 +2444,10 @@ const Wn = D({
   ] });
 }), D0 = M.fromText(
   Y ? "be2us-64aaa-aaaaa-qaabq-cai" : "j2let-saaaa-aaaam-qds2q-cai"
-), Mt = async (e, t) => {
+), St = async (e, t) => {
   if ("Fake" in e) return 0n;
   if ("ICP" in e.Real)
-    return zt.create({
+    return kt.create({
       agent: t.agent,
       canisterId: $(e.Real)
     }).accountBalance({
@@ -2463,7 +2465,7 @@ const Wn = D({
 }, fe = (e) => {
   const { authData: t } = W(), { data: n = 0n } = Z({
     queryKey: S.walletBalance.key(e, t),
-    queryFn: async () => t ? Mt(e, t) : 0n,
+    queryFn: async () => t ? St(e, t) : 0n,
     refetchInterval: 5e3
   });
   return z(() => n, [n]);
@@ -2472,7 +2474,7 @@ const Wn = D({
   return le(
     async (r, c) => {
       if (!t) throw new Error("Auth data not found");
-      const i = await Mt(e, t);
+      const i = await St(e, t);
       if (!(r <= 0))
         return new Promise((l, o) => {
           if (i >= r) return l();
@@ -2609,7 +2611,7 @@ const Wn = D({
         maxDecimals: d.decimals,
         min: u(c),
         max: u(o),
-        symbol: /* @__PURE__ */ a("div", { className: "flex justify-center items-center -mt-0.5", children: /* @__PURE__ */ a(Nt, { meta: d, className: "size-4 flex" }) }),
+        symbol: /* @__PURE__ */ a("div", { className: "flex justify-center items-center -mt-0.5", children: /* @__PURE__ */ a(Et, { meta: d, className: "size-4 flex" }) }),
         value: u(n),
         defaultValue: u(r),
         hideClear: !0,
@@ -2677,7 +2679,7 @@ const Wn = D({
   queryKey: ["token-registry", "icrc", e ?? "none"],
   queryFn: async () => {
     try {
-      const r = M.fromText(e ?? ""), i = await ie.create({ canisterId: r }).metadata({}), l = kt(i);
+      const r = M.fromText(e ?? ""), i = await ie.create({ canisterId: r }).metadata({}), l = Ot(i);
       if (!l?.symbol) throw new Error(`Metadata not found for ${e}`);
       return [
         {
@@ -2742,7 +2744,7 @@ const Wn = D({
       children: e
     }
   );
-}), _e = () => ee(Qn), St = h(({ onClose: e, isOpen: t, onSelect: n }) => {
+}), _e = () => ee(Qn), Gt = h(({ onClose: e, isOpen: t, onSelect: n }) => {
   const r = _e(), { addCurrency: c, removeCurrency: i } = r, [l, o] = E(), A = L(), { data: s, isPending: d, isFetching: f, ...g } = Zn(l), u = z(() => {
     let p = l ? s : [
       ...r.allCurrencies,
@@ -2756,7 +2758,7 @@ const Wn = D({
     });
   }, [r.allCurrencies, s, l, r.highlightedCurrencies, n]);
   return A ? null : /* @__PURE__ */ w(
-    bt,
+    xt,
     {
       title: "Add a token",
       onClose: e,
@@ -2764,7 +2766,7 @@ const Wn = D({
       children: [
         /* @__PURE__ */ a(He, { children: "Add a token" }),
         /* @__PURE__ */ a(
-          xt,
+          zt,
           {
             label: "Search",
             placeholder: "Search or paste a ledger address",
@@ -2800,7 +2802,7 @@ const Wn = D({
     s && n({ Real: { BTC: null } });
   }, [s]), s ? null : /* @__PURE__ */ w(x, { children: [
     /* @__PURE__ */ a(
-      St,
+      Gt,
       {
         isOpen: o,
         onClose: () => A(!1),
@@ -2846,7 +2848,7 @@ const Wn = D({
     s && t({ BTC: null });
   }, [s]), s ? null : /* @__PURE__ */ w(x, { children: [
     /* @__PURE__ */ a(
-      St,
+      Gt,
       {
         isOpen: i,
         onClose: () => l(!1),
@@ -2884,7 +2886,7 @@ const Wn = D({
   // "phantom",
 ], kr = [
   "metamask"
-], Bt = h(
+], bt = h(
   ({ walletType: e, eip6963: t }) => {
     switch (e || t?.name) {
       case "plug":
@@ -2939,7 +2941,7 @@ const Wn = D({
   }
 ), Or = h(
   ({ label: e = "Wallet" }) => {
-    const { walletType: t, setWalletType: n } = Et();
+    const { walletType: t, setWalletType: n } = Pt();
     return /* @__PURE__ */ a(
       Oe,
       {
@@ -2948,7 +2950,7 @@ const Wn = D({
         onChange: (r) => n(r),
         options: Xn.map((r) => ({
           value: r,
-          label: /* @__PURE__ */ a(Bt, { walletType: r })
+          label: /* @__PURE__ */ a(bt, { walletType: r })
         }))
       }
     );
@@ -2983,7 +2985,7 @@ const Wn = D({
     {
       label: r === "deposit" ? "From" : "To",
       value: o?.info.rdns,
-      options: Object.entries(A).map(([d, { info: f }]) => ({ label: /* @__PURE__ */ a(Bt, { eip6963: f }), value: d })),
+      options: Object.entries(A).map(([d, { info: f }]) => ({ label: /* @__PURE__ */ a(bt, { eip6963: f }), value: d })),
       onChange: (d) => s(d)
     }
   ) }) : /* @__PURE__ */ w(x, { children: [
@@ -2994,7 +2996,7 @@ const Wn = D({
         value: t,
         options: [
           ...Xn.map((d) => ({
-            label: /* @__PURE__ */ a(Bt, { walletType: d }),
+            label: /* @__PURE__ */ a(bt, { walletType: d }),
             value: d
           })),
           { label: "External wallet", value: "external" }
@@ -3003,7 +3005,7 @@ const Wn = D({
       }
     ),
     !l && t === "external" && r === "withdraw" && /* @__PURE__ */ a(
-      xt,
+      zt,
       {
         label: "External account ID or principal",
         value: c,
@@ -3155,7 +3157,7 @@ const Wn = D({
     )
   ] });
 }), Kn = h(({ currency: e }) => {
-  const { isNativeShown: t, setIsNativeShown: n } = Pt(), { authData: r } = Ge(), c = fe(e ? { Real: e } : { Fake: null }), i = Se(e), l = Yn(e);
+  const { isNativeShown: t, setIsNativeShown: n } = Mt(), { authData: r } = Ge(), c = fe(e ? { Real: e } : { Fake: null }), i = Se(e), l = Yn(e);
   Te();
   const o = z(() => t ? r.principal.toText() : "", [t, r.principal.toText()]);
   return "BTC" in e ? /* @__PURE__ */ a(fa, {}) : i ? /* @__PURE__ */ w(x, { children: [
@@ -3381,7 +3383,7 @@ const Wn = D({
       /* @__PURE__ */ a(
         sn,
         {
-          label: `Use your ${Gt[l.provider.provider].label} wallet`,
+          label: `Use your ${Rt[l.provider.provider].label} wallet`,
           checked: s,
           onChange: d
         },
@@ -3416,7 +3418,7 @@ const Wn = D({
       ),
       !s && n === "deposit" && /* @__PURE__ */ a(Kn, { currency: { BTC: null } }, "wallet-display"),
       !s && n === "withdraw" && /* @__PURE__ */ a(
-        xt,
+        zt,
         {
           label: "Receiver BTC address",
           value: f,
@@ -3528,7 +3530,7 @@ const Wn = D({
     }
   );
 }, (e, t) => T.serialize(e.currency) === T.serialize(t.currency) && e.onClick === t.onClick), Ba = Ne, ba = h(({ onBack: e, onSubmit: t, requiredBalance: n, children: r, currency: c }) => {
-  const { authData: i } = W(), { addToast: l } = qe(), o = Et(), A = Pn(
+  const { authData: i } = W(), { addToast: l } = qe(), o = Pt(), A = Pn(
     c ? { Real: c } : { Fake: null },
     i?.principal
   ), [s, d] = E(0n), f = An(), [g, u] = E(
@@ -3547,7 +3549,7 @@ const Wn = D({
   }, [C]);
   const P = fe(c ? { Real: c } : { Fake: null });
   i2();
-  const H = Pt(), N = Q({
+  const H = Mt(), N = Q({
     mutationFn: async () => {
       if (!i) throw new v("No auth data found");
       if (!s) throw new v("No amount to withdraw found");
@@ -3624,7 +3626,7 @@ const Wn = D({
       let V = P ?? 0n;
       if (!c) throw new v("No currency found");
       const j = await Xe(i.agent, c);
-      if (C !== "external" && (await te.mutateAsync(), V = await Mt({ Real: c }, i)), n && n.currencyValue && n.currencyValue > V)
+      if (C !== "external" && (await te.mutateAsync(), V = await St({ Real: c }, i)), n && n.currencyValue && n.currencyValue > V)
         throw new v(
           `Insufficient balance.
 A balance of ${Ae(
@@ -3672,7 +3674,7 @@ A balance of ${Ae(
       requiredBalance: n,
       currency: l,
       children: [
-        /* @__PURE__ */ a(St, { isOpen: A, onClose: () => s(!1) }),
+        /* @__PURE__ */ a(Gt, { isOpen: A, onClose: () => s(!1) }),
         l ? /* @__PURE__ */ w(mt, { children: [
           r ? /* @__PURE__ */ a(He, { children: "You BTC wallet" }) : /* @__PURE__ */ w(x, { children: [
             /* @__PURE__ */ a(He, { children: /* @__PURE__ */ a(
@@ -3716,7 +3718,7 @@ A balance of ${Ae(
       }
     }, [c, t.amount]);
     return /* @__PURE__ */ w(
-      bt,
+      xt,
       {
         open: !0,
         onClose: () => r(new v("User cancelled")),
@@ -3917,7 +3919,7 @@ A balance of ${Ae(
   fn,
   un,
   pn
-], Gt = {
+], Rt = {
   [yn]: {
     Icon: h(v2),
     label: "Unisat"
@@ -4015,11 +4017,11 @@ A balance of ${Ae(
     case "email_passwordless":
       return /* @__PURE__ */ a(x, { children: "Email" });
     case "siwb":
-      return /* @__PURE__ */ a(x, { children: Gt[e.provider].label });
+      return /* @__PURE__ */ a(x, { children: Rt[e.provider].label });
   }
 });
 export {
-  St as AddTokenModal,
+  Gt as AddTokenModal,
   Tr as AllowanceComponent,
   xa as AllowanceManagementProvider,
   vn as AuthClientContext,
@@ -4039,7 +4041,7 @@ export {
   o0 as CurrencyComponentInner,
   r0 as CurrencyIconComponent,
   Lt as CurrencyInputComponent,
-  Nt as CurrencyMetaIconComponent,
+  Et as CurrencyMetaIconComponent,
   T as CurrencySerializer,
   ve as CurrencyToString,
   Ce as CurrencyTypeComponent,
@@ -4081,7 +4083,7 @@ export {
   Nr as ReceiverComponent,
   Aa as ReceiverSelectorComponent,
   K0 as SignupModalContentComponent,
-  ht as SocialLoginProviders,
+  vt as SocialLoginProviders,
   L2 as TokenAmountToBig,
   Ae as TokenAmountToString,
   Vt as TokenSerializer,
@@ -4094,20 +4096,20 @@ export {
   Kn as WalletDisplayComponent,
   Er as WalletModalContent,
   Un as WalletModalContentContext,
-  Bt as WalletTypeLabel,
+  bt as WalletTypeLabel,
   Xn as WalletTypes,
   ke as buildCKTokenManager,
-  Ct as buildChainFusionActor,
+  Tt as buildChainFusionActor,
   Xe as buildCurrencyManager,
   w0 as buildCurrencyTypeManager,
   Ue as buildFakeCurrencyManager,
   m0 as buildICPManager,
-  vt as buildICRC1CurrencyManager,
-  Ot as decodeSymbolFrom8Bytes,
+  Ct as buildICRC1CurrencyManager,
+  Nt as decodeSymbolFrom8Bytes,
   Ft as encodeSymbolTo8Bytes,
   bn as fetchAllowance,
   dr as formatBalance,
-  Tt as getChainFusionTransactionFee,
+  Bt as getChainFusionTransactionFee,
   z0 as getERC20CanisterData,
   ea as getIsBTC,
   Gn as getStaticManagerMetadata,
@@ -4120,7 +4122,7 @@ export {
   Hn as useAllowanceBalance,
   W as useAuth,
   fe as useBalance,
-  Pt as useChainFusion,
+  Mt as useChainFusion,
   Fn as useChainFusionActor,
   Kt as useChainFusionAllowance,
   P0 as useChainFusionTransactionFees,
@@ -4131,7 +4133,7 @@ export {
   $0 as useEnabledNetworks,
   L as useIsBTC,
   Yn as useIsChainFusionCurrency,
-  Et as useManualWallet,
+  Pt as useManualWallet,
   Pn as useManualWalletTransfer,
   L0 as useRequireBalance,
   a0 as useRequiredCurrencyManager,
